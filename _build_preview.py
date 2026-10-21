@@ -1,19 +1,19 @@
-import base64, os
-assets = ["img/logo.svg","img/tee-black.png","img/tee-black-back.png","img/tee-navy.png","img/tee-navy-back.png",
-          "img/tee-white.png","img/tee-white-back.png","img/shorts-black.png","img/shorts-white.png"]
+import base64, os, glob
+assets = ["img/logo.svg"] + sorted(glob.glob("img/metalvent-*.jpg") + glob.glob("img/swiftly-*.jpg") + glob.glob("img/hoodie-*.jpg"))
+assets = [a.replace("\\","/") for a in assets]
 def datauri(p):
     ext=p.lower().rsplit(".",1)[1]
     if ext=="svg":
         mime="image/svg+xml"; raw=open(p,"rb").read()
     else:
-        mime="image/png"; raw=open(p,"rb").read()
+        mime="image/jpeg" if ext in ("jpg","jpeg") else "image/png"; raw=open(p,"rb").read()
         try:
             from PIL import Image; import io
-            im=Image.open(p).convert("RGBA")
+            im=Image.open(p).convert("RGB")
             w,h=im.size; maxw=760
             if w>maxw:
                 im=im.resize((maxw,int(h*maxw/w)))
-            buf=io.BytesIO(); im.save(buf,"PNG",optimize=True); raw=buf.getvalue()
+            buf=io.BytesIO(); im.save(buf,"JPEG",quality=82,optimize=True); raw=buf.getvalue(); mime="image/jpeg"
         except Exception:
             pass
     return f"data:{mime};base64,"+base64.b64encode(raw).decode()

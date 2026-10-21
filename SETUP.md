@@ -109,16 +109,17 @@ It's the fastest, needs no git, and you can redeploy by dragging the folder agai
 
 - [ ] Did Part A — placed a **test order yourself** (open `index.html` directly in a browser,
       not the sandboxed preview) and saw the row(s) appear in the Sheet.
-- [ ] Order deadline and pickup line in the hero look right — search `Wed, July 29` and
-      `TBD — you'll be notified` in `index.html` if you need to change them.
+- [ ] Order deadline in the hero looks right — search `Order deadline` in `index.html`
+      (currently `Fri, Nov 6`).
 - [ ] Confirmed the e-transfer email is right (it's set to `chenalec47@gmail.com`).
-- [ ] Double-checked prices/sizes against the catalogue.
+- [ ] Double-checked prices/sizes against the catalogue (`PRODUCTS` in `index.html`).
 
 ## Notes / things you may want next
 
-- **Mockups:** real photos are used for tees (black/navy/white) and shorts (black). The
-  ¼-zip, cap, shorty, and grey/navy variants show a branded "mockup coming soon" tile —
-  drop new PNGs into `img/` and point the product at them in the `PRODUCTS` data to upgrade.
+- **Mockups:** every product has front + back photos in White and Blue (`img/metalvent-*`,
+  `img/swiftly-*`, `img/hoodie-*`). Raw uploads live in `image import/` (not committed);
+  re-export them into `img/` at ~900px wide JPEG and point `IMG` in `index.html` at them.
+  A product with no photo falls back to a branded "mockup coming soon" tile.
 - **Payment tracking is manual** by design (you tick "Paid?" as e-transfers arrive). That's
   standard for a club store and keeps it free. If you outgrow it, a paid tool like a Shopify
   or a Google Form + Stripe link is the next step — but not needed for this run.

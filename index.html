@@ -113,6 +113,9 @@ main{max-width:1080px;margin:0 auto;padding:0 20px 130px}
 .seg button{flex:1;border:0;background:transparent;border-radius:7px;padding:9px 4px;min-height:40px;
   font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)}
 .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(18,24,31,.14)}
+.sg-link{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--navy);background:none;border:0;padding:0;
+  border-bottom:1px dashed var(--navy);text-decoration:none;cursor:pointer}
+.sg-link:hover{color:var(--accent);border-color:var(--accent)}
 .sizes{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
 .sz{min-width:42px;min-height:38px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;
   font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--ink)}
@@ -127,24 +130,6 @@ main{max-width:1080px;margin:0 auto;padding:0 20px 130px}
 .add-qty b{flex:1;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;
   font-size:15.5px;letter-spacing:.05em;color:#fff}
 
-/* ---------- tops design-reference panel ---------- */
-.ref-panel{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
-  display:flex;margin-bottom:18px}
-.ref-panel .ref-ph{flex:0 0 44%;aspect-ratio:4/4.3}
-.ref-info{flex:1;padding:24px 26px;display:flex;flex-direction:column;justify-content:center;gap:10px}
-.ref-kicker{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-.ref-info h3{font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
-.ref-info p{color:var(--sub);font-size:13.5px;line-height:1.5;max-width:48ch}
-.ref-info .opt-label{margin-top:4px}
-.ref-note{display:inline-flex;align-items:center;gap:5px;font-family:var(--disp);font-weight:700;font-size:10.5px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px dashed var(--navy);
-  align-self:flex-start}
-.ref-note:hover{color:var(--accent);border-color:var(--accent)}
-@media (max-width:680px){
-  .ref-panel{flex-direction:column}
-  .ref-panel .ref-ph{flex:none;aspect-ratio:4/5}
-}
-
 /* ---------- order review + payment ---------- */
 .panel{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px}
 .empty{color:var(--sub);text-align:center;padding:24px 10px;font-size:14.5px}
@@ -158,7 +143,7 @@ main{max-width:1080px;margin:0 auto;padding:0 20px 130px}
 .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px}
 .qty button{width:32px;height:34px;border:0;background:transparent;font-size:16px;font-weight:700;color:var(--ink)}
 .qty b{width:26px;text-align:center;font-size:13.5px}
-.cl-total{font-family:var(--disp);font-weight:800;font-size:16.5px;width:58px;text-align:right}
+.cl-total{font-family:var(--disp);font-weight:800;font-size:16.5px;width:76px;text-align:right}
 .rm{border:0;background:transparent;color:#A6ACBA;font-size:18px;padding:6px;line-height:1}
 .rm:hover{color:var(--accent)}
 .total-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:16px;border-top:2px solid var(--ink)}
@@ -232,6 +217,34 @@ body.has-items{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
 .done .close{margin-top:18px;border:0;border-radius:10px;padding:12px 32px;min-height:44px;background:var(--ink);color:#fff;
   font-family:var(--disp);font-weight:700;font-size:14.5px;letter-spacing:.12em;text-transform:uppercase}
 
+/* ---------- size guide popup ---------- */
+.sg{background:#fff;border-radius:18px;max-width:600px;width:100%;max-height:calc(100vh - 40px);overflow:auto;
+  padding:24px 22px 22px;position:relative}
+.sg h3{font-family:var(--disp);font-weight:800;font-size:24px;letter-spacing:.04em;text-transform:uppercase;padding-right:40px}
+.sg .sg-note{color:var(--sub);font-size:13px;margin-top:4px}
+.sg .x{position:absolute;top:14px;right:14px;width:38px;height:38px;border:0;border-radius:50%;background:#F1EEE6;
+  font-size:20px;line-height:1;color:var(--ink)}
+.sg .seg{display:inline-flex;margin-top:14px}
+.sg .seg button{flex:none;padding:7px 18px;min-height:36px}
+.sg table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+.sg th{font-family:var(--disp);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);
+  background:#F1EEE6;padding:9px 6px;text-align:center}
+.sg td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:center}
+.sg td:first-child{font-family:var(--disp);font-weight:800;letter-spacing:.04em}
+.sg tr.on td{background:#EEF3FA}
+.sg-how{display:flex;gap:18px;align-items:center;margin-top:20px}
+.sg-how ol{list-style:none;flex:1;display:grid;gap:10px}
+.sg-how li{display:flex;gap:10px;font-size:13px;color:var(--sub);line-height:1.4}
+.sg-how li b{display:block;color:var(--ink);font-size:13.5px}
+.sg-how .n{flex:0 0 22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;
+  display:grid;place-items:center;margin-top:1px}
+.sg-how svg{flex:0 0 190px;width:190px;height:auto}
+@media (max-width:520px){
+  .sg{padding:20px 16px 18px}
+  .sg-how{flex-direction:column-reverse;align-items:stretch}
+  .sg-how svg{align-self:center;width:170px;flex-basis:auto}
+}
+
 footer{background:var(--navy-deep);color:#8D9AC2;text-align:center;padding:30px 20px;font-family:var(--disp);
   font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
 footer b{color:#fff}
@@ -261,11 +274,11 @@ footer a{color:#cfe0f0}
   <div class="hero-in">
     <span class="eyebrow">● University of Toronto Running Club</span>
     <h1>UofT Run Club <em>Merch</em></h1>
-    <p>Official UTRC × Under Armour Merch. Pick your pieces, review your order, and send one e-transfer for the total. Pickup details go out to your contact info once orders arrive.</p>
+    <p>The official UTRC Fall drop. Pick your pieces, review your order, and send one e-transfer for the total. Pickup details go out to your contact info once orders arrive.</p>
     <p>Make sure to send the e-transfer before the order deadline! Your order will not be placed if no e-transfer is received.</p>
     <div class="facts">
       <div class="fact"><span>Pay by</span><b>Interac e-Transfer</b></div>
-      <div class="fact"><span>Order deadline</span><b>Wed, July 29</b></div>
+      <div class="fact"><span>Order deadline</span><b>Fri, Nov 6</b></div>
     </div>
     <button class="cta" onclick="document.getElementById('kit').scrollIntoView({behavior:'smooth'})">Shop the kit →</button>
   </div>
@@ -274,30 +287,13 @@ footer a{color:#cfe0f0}
 <main>
   <div class="section-head" id="kit">
     <span class="bib"><span class="n">01</span>Tops</span>
-    <p>All tops share the same UoftT Run Club Design — check the reference mockup below for exact colour &amp; placement, then pick your piece, fit and size.</p>
+    <p>Every piece carries the UofT Run Club design — flip between front and back to see the print, then pick your colour and size.</p>
   </div>
-
-  <section class="ref-panel" id="ref-panel" aria-label="Design reference — men's tee, all colourways">
-    <div class="ph ref-ph" id="ref-ph"></div>
-    <div class="ref-info">
-      <span class="ref-kicker">Design reference · Men's Tee</span>
-      <h3>Check the print before you pick</h3>
-      <p>Here is the design for our merch drop this year! Every top below carries this exact design while the garment cut, neckline and fit vary by product and gender, so treat this panel as your colour &amp; print reference, not the final shape.</p>
-      <div class="opt-label">Colour <em id="ref-color-label">Black</em></div>
-      <div class="swatches" id="ref-swatches"></div>
-    </div>
-  </section>
 
   <section class="grid" id="products-tops" aria-label="Tops"></section>
 
-  <div class="section-head" id="rest">
-    <span class="bib"><span class="n">02</span>Bottoms &amp; Accessories</span>
-    <p>Choose a colour, fit and size, then add each piece to your order.</p>
-  </div>
-  <section class="grid" id="products-other" aria-label="Other products"></section>
-
   <div class="section-head" id="order">
-    <span class="bib"><span class="n">03</span>Your Order</span>
+    <span class="bib"><span class="n">02</span>Your Order</span>
     <p>Review your picks and add your details. Questions? Email
       <a href="mailto:universityoftorontorunclub@gmail.com">universityoftorontorunclub@gmail.com</a>.</p>
   </div>
@@ -308,7 +304,8 @@ footer a{color:#cfe0f0}
       <div class="field"><label for="f-name">Full name <span class="req">*</span></label>
         <input id="f-name" autocomplete="name" placeholder="e.g. Usain Bolt"></div>
       <div class="field"><label for="f-email">Email <span class="req">*</span></label>
-        <input id="f-email" type="email" autocomplete="email" placeholder="usainbolt@gmail.com"></div>
+        <input id="f-email" type="email" autocomplete="email" placeholder="usainbolt@gmail.com">
+        <small>Your order confirmation is emailed here.</small></div>
       <div class="field full"><label for="f-phone">Phone <span class="req">*</span></label>
         <input id="f-phone" type="tel" autocomplete="tel" placeholder="(416) 555-0134">
         <small>Use the same name on your e-transfer so we can match your payment.</small></div>
@@ -318,7 +315,7 @@ footer a{color:#cfe0f0}
   </section>
 
   <div class="section-head" id="pay">
-    <span class="bib"><span class="n">04</span>Payment</span>
+    <span class="bib"><span class="n">03</span>Payment</span>
     <p>The finish line.</p>
   </div>
   <section class="pay">
@@ -330,9 +327,9 @@ footer a{color:#cfe0f0}
         <button class="copy" id="copy-mail" type="button">Copy</button>
       </div>
       <div class="steps">
-        <div><i>STEP 1</i><span>Submit your order below.</span></div>
+        <div><i>STEP 1</i><span>Submit your order below — you'll get a confirmation email with everything you ordered.</span></div>
         <div><i>STEP 2</i><span>E-transfer your total before the order deadline — put your <b>full name</b> in the transfer message.</span></div>
-        <div><i>STEP 3</i><span>You're locked in. We'll message your contact info with pickup details once your order arrives.</span></div>
+        <div><i>STEP 3</i><span>You're locked in. We'll message your contact info with pickup details once your order arrives — <b>show your confirmation email at pickup</b>.</span></div>
       </div>
       <button class="submit" id="submit" type="button" disabled>Submit order</button>
       <div class="draft-note" id="draft-note" hidden>Draft mode — orders aren't being recorded yet. Set <b>ORDER_ENDPOINT</b> in the script to go live.</div>
@@ -357,10 +354,59 @@ footer a{color:#cfe0f0}
     <div class="mailrow"><span class="mail" id="done-mail">chenalec47@gmail.com</span>
       <button class="copy" id="done-copy" type="button">Copy</button></div>
     <p>Include your full name in the transfer message.</p>
+    <p id="done-confirm">A confirmation email is on its way to <b id="done-email"></b> — keep it and show it to us at pickup. Check your spam folder if it doesn't arrive in a few minutes.</p>
     <p id="warn" class="warn" hidden>⚠ We couldn't confirm this saved to the order sheet. Please
       <a href="#" id="backup-link">download a backup</a> and email it to
       <a href="mailto:chenalec47@gmail.com">chenalec47@gmail.com</a> so your order isn't missed.</p>
     <button class="close" id="done-close" type="button">Done</button>
+  </div>
+</div>
+
+<div class="veil" id="sg-veil" role="dialog" aria-modal="true" aria-labelledby="sg-title">
+  <div class="sg">
+    <button class="x" id="sg-close" type="button" aria-label="Close size guide">×</button>
+    <h3 id="sg-title">Hoodie Size Guide</h3>
+    <p class="sg-note">Oversize Fleeced Hoodie · garment measurements, laid flat. 1–3 cm sizing differences may occur.</p>
+    <div class="seg" role="group" aria-label="Units">
+      <button type="button" data-unit="cm" aria-pressed="true">Centimeters</button>
+      <button type="button" data-unit="in" aria-pressed="false">Inches</button>
+    </div>
+    <table>
+      <thead><tr><th>Size</th><th>Length</th><th>Shoulder</th><th>Chest</th><th>Sleeve</th></tr></thead>
+      <tbody id="sg-body"></tbody>
+    </table>
+    <div class="sg-how">
+      <ol>
+        <li><span class="n">1</span><span><b>Length</b>From where the shoulder seam meets the collar to the hem.</span></li>
+        <li><span class="n">2</span><span><b>Shoulder</b>From where the shoulder seam meets the sleeve on one side to the other side.</span></li>
+        <li><span class="n">3</span><span><b>Chest</b>From the stitches below the armpits on one side to the other.</span></li>
+        <li><span class="n">4</span><span><b>Sleeve length</b>From where the shoulder seam meets the armhole to the cuff.</span></li>
+      </ol>
+      <svg viewBox="0 0 200 210" fill="none" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+        <g stroke="#5B6774" stroke-width="1.6">
+          <path d="M62 52 Q100 44 138 52 L142 192 L58 192 Z" fill="#F7F5EF"/>
+          <path d="M62 52 L40 70 L22 180 L42 184 L58 100" fill="#F7F5EF"/>
+          <path d="M138 52 L160 70 L178 180 L158 184 L142 100" fill="#F7F5EF"/>
+          <path d="M80 52 C74 18 126 18 120 52" fill="#F7F5EF"/>
+          <path d="M88 52 C90 34 110 34 112 52"/>
+          <path d="M58 182 L142 182 M23 172 L42 176 M177 172 L158 176"/>
+          <path d="M76 142 L124 142 L130 172 L70 172 Z"/>
+        </g>
+        <g stroke="#EA4924" stroke-width="1.6">
+          <path d="M62 52 V12 M138 52 V12" stroke-dasharray="3 3"/>
+          <path d="M62 12 H138"/>
+          <path d="M60 100 H140"/>
+          <path d="M116 51 V192"/>
+          <path d="M148 58 L171 182"/>
+        </g>
+        <g font-family="Segoe UI,Arial,sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">
+          <circle cx="116" cy="124" r="7" fill="#12181F"/><text x="116" y="127.2">1</text>
+          <circle cx="100" cy="12" r="7" fill="#12181F"/><text x="100" y="15.2">2</text>
+          <circle cx="78" cy="100" r="7" fill="#12181F"/><text x="78" y="103.2">3</text>
+          <circle cx="160" cy="120" r="7" fill="#12181F"/><text x="160" y="123.2">4</text>
+        </g>
+      </svg>
+    </div>
   </div>
 </div>
 
@@ -372,158 +418,84 @@ footer a{color:#cfe0f0}
    CONFIG — see SETUP.md for how to wire this up.
    ======================================================================== */
 const ORDER_BACKEND = "appsscript";              // "sheetdb" | "appsscript" | "none"
-const ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbwndlhakeqdzrthqPMV28n3DLIEr9nJZp7PlKW8Wjd0TNh4kpox26DImAEpFcbH8THtQg/exec";
+const ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbyqDI_AelP9jPAOSH-X15ddkeTuvx8ZMKMoNIF0HIBkXGBn8SoCZsO-allRXR--TXqSCw/exec";
 const ETRANSFER_EMAIL = "chenalec47@gmail.com";
 if (!ORDER_ENDPOINT || ORDER_ENDPOINT.startsWith("PASTE_")) document.getElementById("draft-note").hidden = false;
 
-/* ---------- Catalogue (from FW26 V2 UTRC × Under Armour catalogue) ---------- */
-const MENS=['S','M','L','XL','2XL'], MENS_3XL=['S','M','L','XL','2XL','3XL'];
-const WMNS=['XS','S','M','L','XL'], WMNS_2XL=['XS','S','M','L','XL','2XL'];
+/* ---------- Catalogue (UTRC Fall drop) ---------- */
+/* Each brand sizes differently — these mirror the size runs on the product pages. */
+const LULU_MENS   = ['XS','S','M','L','XL','XXL'];
+const LULU_WMNS   = ['0','2','4','6','8','10','12','14'];
+const HOODIE_SIZE = ['S','M','L','XL','2XL'];
 
 const PRODUCTS = [
-  { id:"vanish", name:"UA Vanish Tee", blurb:"Insanely soft, 4-way stretch, wicks sweat & dries fast, odor control.",
-    img:"vanish", colors:["White","Navy","Black"],
-    cuts:[{label:"Men's",price:50,sizes:MENS_3XL},{label:"Women's",price:40,sizes:WMNS}] },
+  { id:"metalvent", name:"Lululemon Metal Vent Tech Long-Sleeve", blurb:"Breathable seamless mesh knit, anti-stink, light and quick-drying for every season.",
+    img:"metalvent", colors:["White","Navy"], swatch:{ Navy:"#2E3B5E" },
+    sizeGuide:{ url:"https://shop.lululemon.com/en-ca/p/metal-vent-tech-long-sleeve-shirt-3/s1ygm8hmfd" },
+    cuts:[{label:"Men's",price:89.99,sizes:LULU_MENS}] },
 
-  { id:"techss", name:"UA Tech Tee", blurb:"UA Tech™ fabric, ultra-soft, 100% recycled polyester, anti-odor.",
-    img:"tech", colors:["White","Navy","Black"],
-    cuts:[{label:"Men's",price:35,sizes:MENS},{label:"Women's",price:35,sizes:WMNS_2XL}] },
+  { id:"swiftly", name:"Lululemon Swiftly Tech Long-Sleeve 2.0", blurb:"Waist length. Seamless stretch knit that wicks sweat, with thumbholes for cold starts.",
+    img:"swiftly", colors:["White","Sapphire"],
+    sizeGuide:{ url:"https://shop.lululemon.com/en-ca/p/swiftly-tech-ls-2-race/o7l7jc0lss" },
+    cuts:[{label:"Women's",price:81.99,sizes:LULU_WMNS}] },
 
-  { id:"techls", name:"UA Tech Long Sleeve Tee", blurb:"Same quick-dry UA Tech™ fabric with full sleeves for cold starts.",
-    img:"sleeve", colors:["White","Navy","Black"],
-    cuts:[{label:"Men's",price:40,sizes:MENS},{label:"Women's",price:40,sizes:WMNS_2XL}] },
-
-  { id:"qzip", name:"UA Tech ¼ Zip", blurb:"Easy-layering ¼ zip, 90%+ recycled polyester, ultra-soft UA Tech™.",
-    img:"zip", colors:["Mod-Grey","Black"],
-    cuts:[{label:"Men's",price:45,sizes:MENS_3XL},{label:"Women's",price:45,sizes:WMNS_2XL}] },
-
-  { id:"launch", name:"UA Launch Short 7”", blurb:"Lightweight recycled woven, mesh vents, phone pocket, no liner.",
-    img:"launch", colors:["Mod-Grey","Black"],
-    cuts:[{label:"Men's",price:35,sizes:MENS}] },
-
-  { id:"flyby", name:"UA Fly By Short", blurb:"Lightweight woven, mid-rise ruched waist, mesh vents, open pockets.",
-    img:"flyby", colors:["Navy","Black"],
-    cuts:[{label:"Women's",price:30,sizes:WMNS}] },
-
-  { id:"shorty", name:"UA Shorty 4”", blurb:"HeatGear® compression short, flatlock seams, chafe-free fit.",
-    img:"shorty", colors:["Navy","Black"],
-    cuts:[{label:"Women's",price:30,sizes:WMNS_2XL}] },
-
-  { id:"cap", name:"UA Essential Low Cap", blurb:"Lightweight chino, low-profile adjustable fit, odor control.",
-    img:"cap", colors:["White","Navy","Black"],
-    cuts:[{label:"One Size",price:30,sizes:["One Size"]}] },
+  { id:"hoodie", name:"Oversize Fleeced Hoodie", blurb:"Brushed-fleece interior, roomy drop-shoulder fit, kangaroo pocket. Unisex sizing.",
+    img:"hoodie", colors:["White","Navy"], swatch:{ White:"#EEEBE3", Navy:"#263A52" },
+    sizeGuide:{ popup:true },
+    hidden:true,   // not in the first release — delete this line to put the hoodie back on the site
+    cuts:[{label:"Unisex",price:49.99,sizes:HOODIE_SIZE}] },
 ];
 
-/* Tops render in their own reference-backed section, in this order; everything
-   else falls into the plain "Bottoms & Accessories" grid below it. */
-const TOPS_IDS  = ["vanish","techss","techls","qzip"];
-const OTHER_IDS = ["launch","flyby","shorty","cap"];
-const TOPS  = TOPS_IDS.map(id=>PRODUCTS.find(p=>p.id===id));
-const OTHER = OTHER_IDS.map(id=>PRODUCTS.find(p=>p.id===id));
+/* Everything renders in the Tops section, in this order. */
+const TOPS_IDS  = ["hoodie","metalvent","swiftly"];
 
-/* Real mockups where we have them; everything else falls back to an icon tile. */
+/* Hoodie garment measurements (supplier size guide). Columns: length, shoulder, chest, sleeve. */
+const HOODIE_GUIDE = {
+  cm:{ S:[70,65,66,53.5], M:[72,67,68,54.5], L:[74,69,70,55.5], XL:[76,71,72,56.5], "2XL":[78,73,74,57.5] },
+  in:{ S:[27.56,25.59,25.98,21.06], M:[28.35,26.38,26.77,21.46], L:[29.13,27.17,27.56,21.85],
+       XL:[29.92,27.95,28.35,22.24], "2XL":[30.71,28.74,29.13,22.64] },
+};
+const TOPS  = TOPS_IDS.map(id=>PRODUCTS.find(p=>p.id===id)).filter(p=>!p.hidden);
+
+/* Real mockups where we have them; anything missing falls back to an icon tile. */
 const IMG = {
-  vanish: {
-    Black:{ f:"img/vanish-black.png", b:"img/vanish-black-back.png",
-            fw:"img/vanish-black-women.jpg", bw:"img/vanish-black-back-women.png" },
-    Navy:{  f:"img/vanish-navy.png",  b:"img/vanish-navy-back.png",
-            fw:"img/vanish-navy-women.png",  bw:"img/vanish-navy-back-women.png"  },
-    White:{ f:"img/vanish-white.png", b:"img/vanish-white-back.png",
-            fw:"img/vanish-white-women.png", bw:"img/vanish-white-back-women.png" },
+  metalvent: {
+    White:{ f:"img/metalvent-white.jpg", b:"img/metalvent-white-back.jpg" },
+    Navy:{  f:"img/metalvent-blue.jpg",  b:"img/metalvent-blue-back.jpg"  },
   },
-  tee: {
-    White:{ f:"img/tee-white.png", b:"img/tee-white-back.png", bw:"img/tee-white-back-woman.png" },
-    Navy:{  f:"img/tee-navy.png",  b:"img/tee-navy-back.png",  bw:"img/tee-navy-back-woman.png"  },
-    Black:{ f:"img/tee-black.png", b:"img/tee-black-back.png", bw:"img/tee-black-back-woman.png" },
+  swiftly: {
+    White:{    f:"img/swiftly-white.jpg", b:"img/swiftly-white-back.jpg" },
+    Sapphire:{ f:"img/swiftly-blue.jpg",  b:"img/swiftly-blue-back.jpg"  },
   },
-  tech: {
-    Black:{ f:"img/tech-black.jpg", b:"img/tech-black-back.jpg",
-            fw:"img/tech-black-women.jpg", bw:"img/tech-black-back-women.jpg" },
-    Navy:{  f:"img/tech-navy.jpg",  b:"img/tech-navy-back.jpg",
-            fw:"img/tech-navy-women.jpg",  bw:"img/tech-navy-back-women.jpg"  },
-    White:{ f:"img/tech-white.jpg", b:"img/tech-white-back.jpg",
-            fw:"img/tech-white-women.jpg", bw:"img/tech-white-back-women.jpg" },
-  },
-  sleeve: {
-    Black:{ f:"img/sleeve-black.jpg", b:"img/sleeve-black-back.jpg",
-            fw:"img/sleeve-black-women.png", bw:"img/sleeve-black-back-women.png" },
-    Navy:{  f:"img/sleeve-navy.jpg",  b:"img/sleeve-navy-back.jpg",
-            fw:"img/sleeve-navy-women.png",  bw:"img/sleeve-navy-back-women.png"  },
-    White:{ f:"img/sleeve-white.jpg", b:"img/sleeve-white-back.jpg",
-            fw:"img/sleeve-white-women.png", bw:"img/sleeve-white-back-women.png" },
-  },
-  zip: {
-    Black:{    f:"img/zip-black.jpg",    b:"img/zip-black-back.jpg",
-               fw:"img/zip-black-women.jpg",    bw:"img/zip-black-back-women.jpg" },
-    "Mod-Grey":{ f:"img/zip-modgrey.jpg", b:"img/zip-modgrey-back.jpg",
-               fw:"img/zip-modgrey-women.jpg", bw:"img/zip-modgrey-back-women.jpg" },
-  },
-  launch: {
-    "Mod-Grey":{ f:"img/launch-modgrey.png" },
-    Black:{ f:"img/launch-black.png" },
-  },
-  flyby: {
-    Navy:{ f:"img/flyby-navy.png" },
-    Black:{ f:"img/flyby-black.png" },
-  },
-  shorty: {
-    Navy:{ f:"img/shorty-navy.png" },
-    Black:{ f:"img/shorty-black.png" },
-  },
-  cap: {
-    White:{ f:"img/cap-white.png" },
-    Navy:{  f:"img/cap-navy.png"  },
-    Black:{ f:"img/cap-black.png" },
+  hoodie: {
+    White:{ f:"img/hoodie-white.jpg", b:"img/hoodie-white-back.jpg" },
+    Navy:{  f:"img/hoodie-blue.jpg",  b:"img/hoodie-blue-back.jpg"  },
   },
 };
-const SWATCH = { Black:"#15181F", Navy:"#1C2540", White:"#F5F5F3", "Mod-Grey":"#C3C7CE" };
-const TILE   = { Black:["#171A22","#7A8194"], Navy:["#1C2540","#8FA0C9"], White:["#F3F4F6","#9AA1AE"], "Mod-Grey":["#CDD1D8","#565C68"] };
+/* Default swatch colours; a product's own `swatch` map overrides these (the two navies differ slightly). */
+const SWATCH = { White:"#F5F5F3", Navy:"#2E3B5E", Sapphire:"#1F4FB0" };
+const swatchFor = (p,c) => (p && p.swatch && p.swatch[c]) || SWATCH[c];
+const TILE   = { White:["#F3F4F6","#9AA1AE"], Navy:["#1C2540","#8FA0C9"], Sapphire:["#1F4FB0","#C9D6F2"] };
 const ICONS  = {
   longsleeve:'<path d="M24 8c2 4 14 4 16 0l10 5 2 33h-7l-1-21v29H20V25l-1 21h-7l2-33z"/>',
-  qzip:'<path d="M26 9v-4h12v4"/><path d="M24 8c2 4 14 4 16 0l10 5 2 33h-7l-1-21v29H20V25l-1 21h-7l2-33z"/><path d="M32 13v15"/>',
-  shorts:'<path d="M15 13h34l4 33H37l-5-19-5 19H11z"/>',
-  shorty:'<path d="M18 16h28l3 22H36l-4-13-4 13H15z"/>',
-  cap:'<path d="M13 36c0-15 33-19 37-2l1 2"/><path d="M13 36h38c6 0 8 5 2 6-10-2-30-2-40-2z"/><path d="M31 20v16"/>',
 };
 
 /* ---------- State ---------- */
 let cart = [];
 const sel = {};
 const $ = id => document.getElementById(id);
-const money = n => "$" + n;
+const cents = n => Math.round(n*100)/100;       // keep float sums like 89.99+81.99 exact to the cent
+const money = n => "$" + cents(n).toFixed(2);
 
 $("etr-mail").textContent = ETRANSFER_EMAIL;
 $("done-mail").textContent = ETRANSFER_EMAIL;
 
-/* ---------- Design reference panel (men's tee, all colourways) ---------- */
-const refSel = { color:"White", view:"b" };
-
-function renderReference(){
-  const imgs = IMG.tee[refSel.color];
-  const hasBack = !!imgs.b;
-  const src = (hasBack && refSel.view==="b") ? imgs.b : imgs.f;
-  $("ref-ph").innerHTML = `<img src="${src}" alt="Men's tee — ${refSel.color} ${refSel.view==="b"?"back":"front"}">` +
-    (hasBack ? `<div class="flip" role="group" aria-label="View">
-       <button type="button" data-flip="f" aria-pressed="${refSel.view==="f"}">Front</button>
-       <button type="button" data-flip="b" aria-pressed="${refSel.view==="b"}">Back</button>
-     </div>` : "");
-  $("ref-color-label").textContent = refSel.color;
-  $("ref-swatches").innerHTML = Object.keys(IMG.tee).map(c=>
-    `<button type="button" class="sw" data-color="${c}" aria-pressed="${c===refSel.color}" aria-label="${c}"
-      style="background:${SWATCH[c]}"></button>`).join("");
-}
-$("ref-panel").addEventListener("click",e=>{
-  const b = e.target.closest("button"); if(!b) return;
-  if (b.dataset.color){ refSel.color=b.dataset.color; renderReference(); }
-  else if (b.dataset.flip){ refSel.view=b.dataset.flip; renderReference(); }
-});
-
-/* ---------- Product grids (tops + everything else) ---------- */
+/* ---------- Product grid ---------- */
 function renderProducts(list, containerId){
   const grid = $(containerId);
   grid.innerHTML = "";
   list.forEach(p=>{
-    sel[p.id] = sel[p.id] || { color:p.colors[0], cut:0, size:(p.cuts[0].sizes.length===1?p.cuts[0].sizes[0]:null), view:"f" };
+    sel[p.id] = sel[p.id] || { color:p.colors[0], cut:0, size:(p.cuts[0].sizes.length===1?p.cuts[0].sizes[0]:null), view:"b" };
     const s = sel[p.id];
     const cut = p.cuts[s.cut];
     const card = document.createElement("article");
@@ -532,11 +504,8 @@ function renderProducts(list, containerId){
     let phInner;
     const imgs = p.img && IMG[p.img] && IMG[p.img][s.color];
     if (imgs){
-      const isWomens = cut.label==="Women's";
-      const frontSrc = (isWomens && imgs.fw) ? imgs.fw : imgs.f;
-      const backSrc = (isWomens && imgs.bw) ? imgs.bw : imgs.b;
-      const hasBack = !!backSrc;
-      const src = (hasBack && s.view==="b") ? backSrc : frontSrc;
+      const hasBack = !!imgs.b;
+      const src = (hasBack && s.view==="b") ? imgs.b : imgs.f;
       phInner = `<img src="${src}" alt="${p.name} — ${s.color}">` + (hasBack ?
         `<div class="flip" role="group" aria-label="View">
            <button type="button" data-flip="f" aria-pressed="${s.view==="f"}">Front</button>
@@ -544,7 +513,7 @@ function renderProducts(list, containerId){
          </div>` : "");
     } else {
       const [bg,fg] = TILE[s.color];
-      const icon = p.icon || "shorts";
+      const icon = p.icon || "longsleeve";
       phInner = `<div class="tile" style="background:${bg};color:${fg}">
           <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">${ICONS[icon]}</svg>
           <span>Mockup coming soon</span></div>`;
@@ -552,14 +521,16 @@ function renderProducts(list, containerId){
 
     const swatches = p.colors.map(c=>
       `<button type="button" class="sw" data-color="${c}" aria-pressed="${c===s.color}" aria-label="${c}"
-        style="background:${SWATCH[c]}"></button>`).join("");
+        style="background:${swatchFor(p,c)}"></button>`).join("");
     const cutSeg = p.cuts.length>1 ? `
       <div><div class="opt-label">Fit</div>
       <div class="seg">${p.cuts.map((c,i)=>`<button type="button" data-cut="${i}" aria-pressed="${i===s.cut}">${c.label}</button>`).join("")}</div></div>` : "";
     const sizes = cut.sizes.map(z=>
       `<button type="button" class="sz" data-size="${z}" aria-pressed="${z===s.size}">${z}</button>`).join("");
-    const refNote = TOPS_IDS.includes(p.id)
-      ? `<a href="#ref-panel" class="ref-note">↑ See colour &amp; print reference</a>` : "";
+    const g = p.sizeGuide;
+    const guideLink = !g ? "" : g.url
+      ? `<a class="sg-link" href="${g.url}" target="_blank" rel="noopener">Size guide ↗</a>`
+      : `<button type="button" class="sg-link" data-guide="${p.id}">Size guide</button>`;
 
     const inCart = cart.find(l=>l.pid===p.id && l.cut===cut.label && l.color===s.color && l.size===s.size);
     const addControl = inCart
@@ -575,16 +546,16 @@ function renderProducts(list, containerId){
       <div class="card-body">
         <div class="card-top"><h3>${p.name}</h3><span class="price">${money(cut.price)}</span></div>
         <p class="blurb">${p.blurb}</p>
-        ${refNote}
         <div><div class="opt-label">Colour <em>${s.color}</em></div><div class="swatches">${swatches}</div></div>
         ${cutSeg}
-        <div><div class="opt-label">Size</div><div class="sizes">${sizes}</div></div>
+        <div><div class="opt-label">Size ${guideLink}</div><div class="sizes">${sizes}</div></div>
         ${addControl}
       </div>`;
 
     card.addEventListener("click",e=>{
       const b = e.target.closest("button"); if(!b) return;
-      if (b.dataset.color){ s.color=b.dataset.color; renderProducts(list,containerId); }
+      if (b.dataset.guide){ openGuide(b, s.size); }
+      else if (b.dataset.color){ s.color=b.dataset.color; renderProducts(list,containerId); }
       else if (b.dataset.cut!==undefined){ s.cut=+b.dataset.cut; const c=p.cuts[s.cut]; if(!c.sizes.includes(s.size)) s.size=(c.sizes.length===1?c.sizes[0]:null); renderProducts(list,containerId); }
       else if (b.dataset.size){ s.size=b.dataset.size; renderProducts(list,containerId); }
       else if (b.dataset.flip){ s.view=b.dataset.flip; renderProducts(list,containerId); }
@@ -597,6 +568,31 @@ function renderProducts(list, containerId){
     grid.appendChild(card);
   });
 }
+
+/* ---------- hoodie size guide popup ---------- */
+const guide = { unit:"cm", highlight:null, opener:null };
+function renderGuide(){
+  const rows = HOODIE_GUIDE[guide.unit];
+  $("sg-body").innerHTML = Object.keys(rows).map(z=>
+    `<tr${z===guide.highlight?' class="on"':''}><td>${z}</td>${rows[z].map(v=>`<td class="num">${v}</td>`).join("")}</tr>`).join("");
+  document.querySelectorAll("#sg-veil [data-unit]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.unit===guide.unit));
+}
+function openGuide(opener, size){
+  guide.opener = opener; guide.highlight = size;   // highlight the size they've already picked, if any
+  renderGuide();
+  $("sg-veil").classList.add("on");
+  $("sg-close").focus();
+}
+function closeGuide(){
+  $("sg-veil").classList.remove("on");
+  if (guide.opener && document.contains(guide.opener)) guide.opener.focus();
+}
+$("sg-veil").addEventListener("click",e=>{
+  if (e.target===e.currentTarget || e.target.closest("#sg-close")) return closeGuide();
+  const u = e.target.closest("[data-unit]");
+  if (u){ guide.unit = u.dataset.unit; renderGuide(); }
+});
+document.addEventListener("keydown",e=>{ if (e.key==="Escape" && $("sg-veil").classList.contains("on")) closeGuide(); });
 
 function thumbFor(l){
   const imgs = l.img && IMG[l.img] && IMG[l.img][l.color];
@@ -651,7 +647,6 @@ $("cart").addEventListener("click",e=>{
   else if (b.dataset.i!==undefined){ const l=cart[+b.dataset.i]; l.qty+=+b.dataset.d; if(l.qty<1) cart.splice(+b.dataset.i,1); renderCart(); }
   else return;
   renderProducts(TOPS, "products-tops");
-  renderProducts(OTHER, "products-other");
 });
 
 /* ---------- copy buttons ---------- */
@@ -696,8 +691,8 @@ $("submit").addEventListener("click", async ()=>{
   if(!name){ $("f-name").focus(); flash("f-name"); return; }
   if(!email || !EMAIL_RE.test(email)){ $("f-email").focus(); flash("f-email"); return; }
   if(!phone || !isValidPhone(phone)){ $("f-phone").focus(); flash("f-phone"); return; }
-  const total = cart.reduce((t,l)=>t+l.qty*l.price,0);
-  const ref = "UTRC-"+Math.floor(100000+Math.abs(hashStr(Date.now()+""+total))%900000);
+  const total = cents(cart.reduce((t,l)=>t+l.qty*l.price,0));
+  const ref ="UTRC-"+Math.floor(100000+Math.abs(hashStr(Date.now()+""+total))%900000);
   const itemsText = cart.map(l=>`${l.qty}× ${l.name} (${l.cut}/${l.color}/${l.size}) @ $${l.price}`).join(" | ");
   const payload = { ref, timestamp:new Date().toISOString(), name, email, phone, notes, total, itemsText,
     items: cart.map(l=>({name:l.name,cut:l.cut,color:l.color,size:l.size,qty:l.qty,price:l.price})) };
@@ -712,7 +707,7 @@ $("submit").addEventListener("click", async ()=>{
         const rows = cart.map(l=>({
           "Timestamp": tsStr, "Order Ref": ref, "Name": name, "Email": email, "Phone": phone,
           "Item": l.name, "Fit": l.cut, "Colour": l.color, "Size": l.size, "Qty": l.qty,
-          "Item Price": l.price, "Line Total": l.qty*l.price, "Order Total": total,
+          "Item Price": l.price, "Line Total": cents(l.qty*l.price), "Order Total": total,
           "Notes": notes, "Paid": ""
         }));
         console.log("SheetDB payload:", rows);
@@ -731,6 +726,8 @@ $("submit").addEventListener("click", async ()=>{
   btn.textContent="Submit order";
 
   $("done-amt").textContent = money(total);
+  $("done-email").textContent = email;
+  $("done-confirm").hidden = (saved===false || !ORDER_ENDPOINT || ORDER_ENDPOINT.startsWith("PASTE_"));
   $("warn").hidden = (saved!==false);
   $("veil").classList.add("on");
   cart = []; renderCart();
@@ -748,7 +745,7 @@ $("backup-link").addEventListener("click",e=>{
     `UTRC Run Club Merch — Order ${o.ref}`, `Date: ${new Date(o.timestamp).toLocaleString()}`,
     `Name: ${o.name}`,`Email: ${o.email}`,`Phone: ${o.phone||"-"}`, ``,`ITEMS:`,
     ...o.items.map(i=>`  ${i.qty}× ${i.name} — ${i.cut} / ${i.color} / ${i.size} = $${(i.price*i.qty).toFixed(2)}`),
-    ``,`TOTAL DUE: $${o.total}`,``,`>> Send Interac e-Transfer of $${o.total} to ${ETRANSFER_EMAIL}`,
+    ``,`TOTAL DUE: ${money(o.total)}`,``,`>> Send Interac e-Transfer of ${money(o.total)} to ${ETRANSFER_EMAIL}`,
     `>> Put "${o.name}" in the e-transfer message.`,
     o.notes?`\nNotes: ${o.notes}`:``,
   ].join("\n");
@@ -756,9 +753,7 @@ $("backup-link").addEventListener("click",e=>{
   a.href=URL.createObjectURL(blob); a.download=`${o.ref}.txt`; a.click();
 });
 
-renderReference();
 renderProducts(TOPS, "products-tops");
-renderProducts(OTHER, "products-other");
 renderCart();
 </script>
 </body>
