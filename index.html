@@ -428,6 +428,9 @@ const LULU_MENS   = ['XS','S','M','L','XL','XXL'];
 const LULU_WMNS   = ['0','2','4','6','8','10','12','14'];
 const HOODIE_SIZE = ['S','M','L','XL','2XL'];
 
+/* The hoodie appears on its own at this moment (Toronto time) — no redeploy needed. */
+const HOODIE_LAUNCH = Date.parse("2026-10-24T19:00:00-04:00");   // Sat, Oct 24, 7:00 PM EDT
+
 const PRODUCTS = [
   { id:"metalvent", name:"Lululemon Metal Vent Tech Long-Sleeve", blurb:"Breathable seamless mesh knit, anti-stink, light and quick-drying for every season.",
     img:"metalvent", colors:["White","Navy"], swatch:{ Navy:"#2E3B5E" },
@@ -442,7 +445,7 @@ const PRODUCTS = [
   { id:"hoodie", name:"Oversize Fleeced Hoodie", blurb:"Brushed-fleece interior, roomy drop-shoulder fit, kangaroo pocket. Unisex sizing.",
     img:"hoodie", colors:["White","Navy"], swatch:{ White:"#EEEBE3", Navy:"#263A52" },
     sizeGuide:{ popup:true },
-    hidden:true,   // not in the first release — delete this line to put the hoodie back on the site
+    hidden: Date.now() < HOODIE_LAUNCH,   // hidden until launch; set to false to show it right away
     cuts:[{label:"Unisex",price:49.99,sizes:HOODIE_SIZE}] },
 ];
 
@@ -455,7 +458,8 @@ const HOODIE_GUIDE = {
   in:{ S:[27.56,25.59,25.98,21.06], M:[28.35,26.38,26.77,21.46], L:[29.13,27.17,27.56,21.85],
        XL:[29.92,27.95,28.35,22.24], "2XL":[30.71,28.74,29.13,22.64] },
 };
-const TOPS  = TOPS_IDS.map(id=>PRODUCTS.find(p=>p.id===id)).filter(p=>!p.hidden);
+const visibleTops = () => TOPS_IDS.map(id=>PRODUCTS.find(p=>p.id===id)).filter(p=>!p.hidden);
+let TOPS = visibleTops();
 
 /* Real mockups where we have them; anything missing falls back to an icon tile. */
 const IMG = {
@@ -755,6 +759,16 @@ $("backup-link").addEventListener("click",e=>{
 
 renderProducts(TOPS, "products-tops");
 renderCart();
+
+/* If someone has the page open when the hoodie launches, drop it in without a refresh. */
+const untilLaunch = HOODIE_LAUNCH - Date.now();
+if (untilLaunch > 0 && untilLaunch < 2**31-1){
+  setTimeout(()=>{
+    PRODUCTS.find(p=>p.id==="hoodie").hidden = false;
+    TOPS = visibleTops();
+    renderProducts(TOPS, "products-tops");
+  }, untilLaunch);
+}
 </script>
 </body>
 </html>
