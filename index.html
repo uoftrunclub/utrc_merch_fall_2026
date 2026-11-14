@@ -9,6 +9,21 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>UofT Run Club Merch</title>
 <meta name="description" content="University of Toronto Running Club merch store — pick your gear, review your order, and e-transfer the total.">
+<script>
+/* The store shuts itself at this moment (Toronto time) — no redeploy needed.
+   Runs before the page draws, so late visitors never see the store flash up. */
+const STORE_CLOSE = Date.parse("2026-11-15T00:00:00-05:00");   // midnight ending Sat, Nov 14 (EST)
+const storeClosed = () => Date.now() >= STORE_CLOSE;
+if (storeClosed()) document.documentElement.classList.add("closed");
+</script>
+<style>
+/* Closed screen: only the top bar, the closed notice and the footer remain. */
+#closed{display:none}
+html.closed #closed{display:block}
+html.closed body > :not(.topbar):not(#closed):not(footer):not(script){display:none !important}
+html.closed body{min-height:100vh;display:flex;flex-direction:column}
+html.closed #closed{flex:1}
+</style>
 <style>
 /* ============================================================
    UofT Run Club Merch — single light theme (deliberate choice)
@@ -267,6 +282,15 @@ footer a{color:#cfe0f0}
   <div class="topbar-in">
     <span class="mark"><img src="img/logo.svg" alt="UTRC logo" onerror="this.parentNode.textContent='UTRC'"></span>
     <span><b>UTRC</b><span>Run Club Merch</span></span>
+  </div>
+</header>
+
+<header class="hero" id="closed">
+  <div class="hero-in">
+    <span class="eyebrow">● University of Toronto Running Club</span>
+    <h1>Orders are <em>closed</em></h1>
+    <p>The UTRC Fall merch drop closed at midnight on Saturday, Nov 14. Thanks to everyone who ordered!</p>
+    <p>If you placed an order, pickup details will go out to the contact info you gave us. Questions? Email <a href="mailto:universityoftorontorunclub@gmail.com" style="color:#fff">universityoftorontorunclub@gmail.com</a>.</p>
   </div>
 </header>
 
@@ -695,6 +719,7 @@ $("submit").addEventListener("click", async ()=>{
   if(!name){ $("f-name").focus(); flash("f-name"); return; }
   if(!email || !EMAIL_RE.test(email)){ $("f-email").focus(); flash("f-email"); return; }
   if(!phone || !isValidPhone(phone)){ $("f-phone").focus(); flash("f-phone"); return; }
+  if (storeClosed()){ closeStore(); return; }   // tab left open past the deadline
   const total = cents(cart.reduce((t,l)=>t+l.qty*l.price,0));
   const ref ="UTRC-"+Math.floor(100000+Math.abs(hashStr(Date.now()+""+total))%900000);
   const itemsText = cart.map(l=>`${l.qty}× ${l.name} (${l.cut}/${l.color}/${l.size}) @ $${l.price}`).join(" | ");
@@ -769,6 +794,14 @@ if (untilLaunch > 0 && untilLaunch < 2**31-1){
     renderProducts(TOPS, "products-tops");
   }, untilLaunch);
 }
+
+/* If someone has the page open at the deadline, swap to the closed screen without a refresh. */
+function closeStore(){
+  document.documentElement.classList.add("closed");
+  window.scrollTo(0,0);
+}
+const untilClose = STORE_CLOSE - Date.now();
+if (untilClose > 0 && untilClose < 2**31-1) setTimeout(closeStore, untilClose);
 </script>
 </body>
 </html>
