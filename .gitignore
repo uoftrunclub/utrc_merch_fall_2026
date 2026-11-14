@@ -3,3 +3,9 @@ preview-artifact.html
 
 # Local-only: raw photo uploads staged before processing into img/
 image import/
+
+# Local-only: old test copy of the store (still points at a live order form, no closing time)
+index-test.html
+
+# Local-only: zip of the summer photos; the site serves images from img/
+img.zip
